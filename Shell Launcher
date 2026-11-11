@@ -22,5 +22,5 @@ $Shell = [wmiclass]"\\localhost\root\standardcimv2\embedded:WESL_UserSetting"
 
 $Steam = '"C:\Program Files (x86)\Steam\steam.exe" -bigpicture'
 
-$Shell.SetDefaultShell($Steam, 0)
+$Shell.SetDefaultShell($Steam, 3)
 $Shell.SetEnabled($true)
