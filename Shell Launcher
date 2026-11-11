@@ -1,0 +1,26 @@
+Habilitar
+
+Enable-WindowsOptionalFeature -Online -FeatureName Client-DeviceLockdown,Client-EmbeddedShellLauncher -All
+
+Outra aplicação 
+
+$Shell = [wmiclass]"\\localhost\root\standardcimv2\embedded:WESL_UserSetting"
+
+$Shell.SetDefaultShell("powershell.exe", 0)
+$Shell.SetEnabled($true)
+
+Voltar para o explorer
+
+$Shell = [wmiclass]"\\localhost\root\standardcimv2\embedded:WESL_UserSetting"
+
+$Shell.SetDefaultShell("explorer.exe", 0)
+$Shell.SetEnabled($false)
+
+Exemplo Steam: 
+
+$Shell = [wmiclass]"\\localhost\root\standardcimv2\embedded:WESL_UserSetting"
+
+$Steam = '"C:\Program Files (x86)\Steam\steam.exe" -bigpicture'
+
+$Shell.SetDefaultShell($Steam, 0)
+$Shell.SetEnabled($true)
